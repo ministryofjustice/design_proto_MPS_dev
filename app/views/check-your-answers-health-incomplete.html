@@ -16,7 +16,7 @@ function loadFunction(){
 }
 function showMissing(){
   console.log('showMissing');
-  getColumn("myTable", "1");
+  getColumn("myTable", "1", "check-your-answers-health-check.html");
   //onlyShowMissing("myTable");
 }
 </script>
@@ -41,6 +41,7 @@ table th{
     <span class="status" style="margin-right:10px;">
       Incomplete
     </span>
+    Last confirmed: Firstname Surname, HH:MM | DD Mon YYYY
   </p>
   <table class="check-your-answers column-two-thirds" id="myTable">
     <col width="30%">
@@ -194,7 +195,7 @@ table th{
                                       <td>
                                         Medical contact
                                       </td>
-                                      <td>
+                                      <td id="ignor">
                                       </td>
                                       <td>
                                         {{ data['contact_details'] }}

@@ -27,7 +27,7 @@ function showAll() {
 }
 function showMissing(){
   console.log('showMissing');
-  getColumn("myTable", "1");
+  getColumn("myTable", "1", "check-your-answers-risk-check.html");
   onlyShowMissing("myTable");
 }
 function formSubmit(radioObj){
@@ -66,9 +66,10 @@ table th{
       <span class="status" style="margin-right:10px;">
         Incomplete
       </span>
+      Last confirmed: Firstname Surname, HH:MM | DD Mon YYYY
       <br>
       <span style="margin: 15px 0 0px 0;" class="nomis-verified"></span>
-      <span style="font-weight:normal; padding-left:10px;">NOMIS alerts verified, HH:MM | DD Mon YYYY</span>
+      <span style="font-weight:normal; padding-left:10px;">NOMIS alerts verified: HH:MM | DD Mon YYYY</span>
     </p>
 
     <div class="notice" style="width:670px;">
