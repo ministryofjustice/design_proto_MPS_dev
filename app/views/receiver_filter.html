@@ -24,10 +24,10 @@ Question page
           <legend class="visuallyhidden">
           </legend>
 
-          <label for="radio-part-1" class="block-label" data-target="court-crown-info">
-            <input id="radio-part-1" type="radio" name="radio-inline-group" value="Crown Court">
-            Crown Court
-          </label>
+          <div class="multiple-choice" data-target="court-crown-info">
+            <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Crown Court">
+            <label for="radio-inline-1">Crown Court</label>
+          </div>
 
           <div class="panel panel-border-narrow js-hidden" id="court-crown-info">
             <div class="form-group">
@@ -37,10 +37,10 @@ Question page
               </div>
             </div>
 
-            <label for="radio-part-2" class="block-label" data-target="court-mag-info">
-              <input id="radio-part-2" type="radio" name="radio-inline-group" value="Magistrates Court">
-              Magistrates Court
-            </label>
+            <div class="multiple-choice" data-target="court-mag-info" data-target="court-crown-info">
+              <input id="radio-inline-2" type="radio" name="radio-inline-group" value="Magistrates Court">
+              <label for="radio-inline-2">Magistrates Court</label>
+            </div>
 
             <div class="panel panel-border-narrow js-hidden" id="court-mag-info">
               <div class="form-group">

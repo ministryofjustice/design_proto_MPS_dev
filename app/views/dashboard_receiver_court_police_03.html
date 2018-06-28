@@ -1,0 +1,459 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Dashboard receiver
+{% endblock %}
+
+{% block content %}
+<style media="screen">
+.person {
+  display: block;
+  width: 86px;
+  height: auto;
+  padding: 2px 0px 2px 2px;
+  margin: 0px;
+}
+
+table th {
+
+}
+table tr td{
+  /*border: 0px;*/
+  padding: 0px;
+}
+
+tr td {
+  border: none;
+}
+tr:nth-child(odd){
+  border-top: 1px solid #6F777B;
+  /*background-color: #F8F8F8;*/
+}
+tr {
+  border: 0px;
+}
+thead, th, td{
+  border-top: 1px solid #6F777B;
+}
+tr:nth-child(even) {
+  vertical-align:top;
+}
+th {
+  background-color: white;
+  font-weight: normal;
+}
+
+tbody:hover {
+  background-color: #FFFFD4;
+  cursor: pointer;
+}
+tbody.no-hover:hover {
+  background-color: white !important;
+}
+.flag-inactive{
+  display: none;
+}
+.column-one-quarter{
+  padding: 0px;
+}
+.column-data {
+  /*display: inline-block;*/
+  width: 15%;
+}
+.message_number{
+  text-align: center;
+  color: white;
+  background-color: #B10E1E;
+  width: 20px;
+  position: relative;
+  left: 25px;
+  font-size: 16px;
+  display: none;
+  /*font-weight: bold;*/
+}
+.column-one-half{
+  padding: 0px 0px;
+}
+.column-one-third{
+  padding: 0px 0px;
+}
+.column-one-quarter{
+  width: calc(100%/4.5);
+}
+.column-one-sixth{
+  padding: 0px 0px;
+  width: auto;
+}
+.data{
+  display: inline-block;
+}
+.data-acronym{
+  font-size: 19px;
+  font-weight: bold;
+}
+section .column-one-third .bold-small{
+  font-size: 28px;
+}
+section .column-one-third {
+  /*width: calc(100%/6);*/
+  width:auto;
+  margin-right: 40px;
+}
+section {
+  border-top: 2px solid black;
+  border-bottom: 1px solid black;
+  padding: 15px 0px;
+  /*background: #DEE0E2;*/
+  height: 70px
+}
+section .small{
+  font-size: 16px;
+}
+.origin {
+  box-sizing: border-box;
+  font-family: 'arial narrow', sans-serif;
+  display: inline-block;
+  color: white;
+  background-color: #005EA5;
+  padding: 0px 6px;
+  margin-right: 6px;
+  /*margin-top: 5px;*/
+  /*border: solid 2px #005EA5;*/
+}
+.police {
+  background-color: #005EA5;
+  border: solid 2px #005EA5;
+}
+.police:after {
+  content: "Police";
+}
+.prison {
+  background-color: #0B0C0C;
+  border: solid 2px #0B0C0C;
+}
+.prison:after {
+  content: "Prison";
+}
+</style>
+
+<main id="content" role="main">
+
+  {% include "includes/phase_banner_alpha.html" %}
+
+  <div style="margin-top:40px; margin-bottom:170px;">
+    <div class="data column-one-third">
+      <span class="data-item bold-xlarge">24/05/2018</span>
+      <span class="data-item bold-small">Chelmsford Crown Court</span>
+      <a class="button" href="" role="button" style="background-color:#dee0e2; color:#0b0c0c; margin-top:5px; font-size:16px">Change court</a></h1>
+    </div>
+    <div class="data column-one-quarter">
+      <span class="data-item bold-xlarge">4</span>
+      <span class="data-item bold-small">Total custodies</span>
+    </div>
+    <div class="data column-one-quarter">
+      <span class="data-item bold-xlarge">3</span>
+      <span class="data-item bold-small">From Prison</span>
+    </div>
+    <div class="data column-one-quarter">
+      <span class="data-item bold-xlarge">1</span>
+      <span class="data-item bold-small">From Police</span>
+    </div>
+  </div>
+  <section>
+    <div>
+      <div class="data column-one-third">
+        <span class="data-item bold-small">3 <span class="data-acronym">MA</span></span>
+        <span class="data-item small"> Male Adult</span>
+      </div>
+      <div class="data column-one-third">
+        <span class="data-item bold-small">1 <span class="data-acronym">MYO</span></span>
+        <span class="data-item small">Male Young Offender</span>
+      </div>
+      <div class="data column-one-third">
+        <span class="data-item bold-small">0 <span class="data-acronym">MJ</span></span>
+        <span class="data-item small">Male Juvenile</span>
+      </div>
+      <div class="data column-one-third">
+        <span class="data-item bold-small">1 <span class="data-acronym">FA</span></span>
+        <span class="data-item small">Female Adult</span>
+      </div>
+      <div class="data column-one-third">
+        <span class="data-item bold-small">0 <span class="data-acronym">FYO</span></span>
+        <span class="data-item small">Female Young Offender </span>
+      </div>
+      <div class="data column-one-third">
+        <span class="data-item bold-small">0 <span class="data-acronym">FJ</span></span>
+        <span class="data-item small">Female Juvenile</span>
+      </div>
+    </div>
+  </section>
+
+
+
+  <table class="">
+    <thead>
+      <tr>
+        <th style="width:80px;"></th>
+        <th style="width:100px;">Number</th>
+        <th>Name</th>
+        <th>From</th>
+        <th>Date of birth</th>
+        <th>Age</th>
+        <th style="width:115px">Estate</th>
+      </tr>
+    </thead>
+
+    <div class="unit">
+      <tbody onclick="window.document.location='profile_done_court.html';">
+        <tr>
+          <td rowspan="2"><img class="person" src="/public/images/ronnie.jpg" alt="" /></td>
+          <td class="prisonnumber"><a href="profile_done_court.html">A1234AB</a></td>
+          <td><span class="surname">BARKER</span> RONNIE</td>
+          <td>HMP Chelmsford</td>
+          <td>22/02/1967</td>
+          <td>61</td>
+          <td><span class="origin prison"></span>MA</td>
+          <td>
+            <div class="message_number">
+              2
+            </div>
+          </td>
+        </tr>
+        <tr class="">
+          <td colspan="6">
+            <li class="flag">Not for release</li>
+            <li class="flag flag-inactive">ACCT</li>
+            <li class="flag">Suicide / Self harm</li>
+            <li class="flag flag-inactive">Escape risk</li>
+            <li class="flag">Cell share risk</li>
+            <li class="flag flag-inactive">Cat A</li>
+            <li class="flag">Rule 45</li>
+          </td>
+        </tr>
+      </tbody>
+    </div>
+
+    <div class="unit">
+      <tbody onclick="window.document.location='profile_done_court_from_police.html';">
+        <tr>
+          <td rowspan="2"><img class="person" src="/public/images/photo_unavailable.jpg" alt="" /></td>
+          <td class="prisonnumber"><a href="profile_done_court_from_police.html">02/12345B</a></td>
+          <td><span class="surname">HALL</span> JILLY</td>
+          <td>Chelmsford Police</td>
+          <td>01/01/1970</td>
+          <td>48</td>
+          <td><span class="origin police"></span>FA</td>
+        </tr>
+        <tr class="">
+          <td colspan="6">
+            <li class="flag ">Not for release</li>
+            <li class="flag flag-inactive">ACCT</li>
+            <li class="flag ">Suicide / Self harm</li>
+            <li class="flag flag-inactive">Rule 45</li>
+            <li class="flag flag-inactive">Escape risk</li>
+            <li class="flag ">Cell share risk</li>
+            <li class="flag flag-inactive">Cat A</li>
+          </td>
+        </tr>
+      </tbody>
+      <div/>
+
+      <div class="unit">
+        <tbody onclick="window.document.location='profile_done_court.html';">
+          <tr>
+            <td rowspan="2"><img class="person" src="/public/images/HICKINBOTHAM.jpg" alt="" /></td>
+            <td class="prisonnumber"><a href="profile_done_court.html">Q1234WX</a></td>
+            <td><span class="surname">HICKINBOTHAM</span> JOHNNY</td>
+            <td>HMP Chelmsford</td>
+            <td>22/02/1989</td>
+            <td>39</td>
+            <td><span class="origin prison"></span>MA</td>
+            <td>
+              <div class="message_number">
+                2
+              </div>
+            </td>
+          </tr>
+          <tr class="">
+            <td colspan="6">
+              <li class="flag">Not for release</li>
+              <li class="flag">Escape risk</li>
+              <li class="flag">ACCT</li>
+              <li class="flag">Suicide / Self harm</li>
+              <li class="flag">Cell share risk</li>
+              <li class="flag">Cat A</li>
+              <li class="flag">Rule 45</li>
+            </td>
+          </tr>
+        </tbody>
+      </div>
+      <div class="unit">
+        <tbody onclick="window.document.location='profile_done_court_from_police.html';">
+          <tr>
+            <td rowspan="2"><img class="person" src="/public/images/photo_unavailable.jpg" alt="" /></td>
+            <td class="prisonnumber"><a href="profile_done_court_from_police.html">01/12345A</a></td>
+            <td><span class="surname">GOBDER</span> Lennie</td>
+            <td>Chelmsford Police</td>
+            <td>28/06/1999</td>
+            <td>19</td>
+            <td><span class="origin police"></span>MYO</td>
+            <td>
+              <div class="message_number">
+                1
+              </div>
+            </td>
+          </tr>
+          <tr class="">
+            <td colspan="6">
+              <li class="flag">Not for release</li>
+              <li class="flag">Escape risk</li>
+              <!-- <li class="flag">ACCT</li> -->
+              <li class="flag">Suicide / Self harm</li>
+              <li class="flag">Cell share risk</li>
+              <!-- <li class="flag flag-inactive">Cat A</li> -->
+              <!-- <li class="flag flag-inactive">Rule 45</li> -->
+            </td>
+          </tr>
+        </tbody>
+      </div>
+
+      <!-- <div class="unit">
+      <tbody onclick="window.document.location='profile_done_court.html';">
+      <tr>
+      <td rowspan="2"><img class="person" src="/public/images/ALDERTON.jpg" alt="" /></td>
+      <td class="prisonnumber"><a href="profile_done_court.html">A1476AE</a></td>
+      <td><span class="surname">ALDERTON</span> JOHN</td>
+      <td>HMP/YOI Wormwood Scrubs</td>
+      <td>28/11/1989</td>
+      <td>27</td>
+    </tr>
+    <tr class="">
+    <td colspan="6">
+    <li class="flag">Not for release</li>
+    <li class="flag flag-inactive">ACCT</li>
+    <li class="flag flag-inactive">Suicide / Self harm</li>
+    <li class="flag">Rule 45</li>
+    <li class="flag flag-inactive">Escape risk</li>
+    <li class="flag">CSRA High</li>
+    <li class="flag flag-inactive">Cat A</li>
+  </td>
+</tr>
+</tbody>
+</div>
+<div class="unit">
+<tbody onclick="window.document.location='profile_done_court.html';">
+<tr>
+<td rowspan="2"><img class="person" src="/public/images/GULLMORE.jpg" alt="" /></td>
+<td class="prisonnumber"><a href="profile_done_court.html">A1471AE</a></td>
+<td><span class="surname">GULLMORE</span> RICHARD</td>
+<td>HMP/YOI Wormwood Scrubs</td>
+<td>21/07/1981</td>
+<td>36</td>
+</tr>
+<tr class="">
+<td colspan="6">
+<li class="flag flag-inactive">Not for release</li>
+<li class="flag flag-inactive">ACCT</li>
+<li class="flag flag-inactive">Suicide / Self harm</li>
+<li class="flag">Rule 45</li>
+<li class="flag flag-inactive">Escape risk</li>
+<li class="flag">CSRA High</li>
+<li class="flag flag-inactive">Cat A</li>
+</td>
+</tr>
+</tbody>
+</div>
+<div class="unit">
+<tbody onclick="window.document.location='profile_done_court.html';">
+<tr>
+<td rowspan="2"><img class="person" src="/public/images/FINKELSTEIN.jpg" alt="" /></td>
+<td class="prisonnumber"><a href="profile_done_court.html">F7415EG</a></td>
+<td><span class="surname">FINKELSTEIN</span> DAVID</td>
+<td>HMP Bedford</td>
+<td>23/06/1990</td>
+<td>27</td>
+</tr>
+<tr class="">
+<td colspan="6">
+<li class="flag ">Not for release</li>
+<li class="flag ">ACCT</li>
+<li class="flag flag-inactive">Suicide / Self harm</li>
+<li class="flag flag-inactive">Rule 45</li>
+<li class="flag flag-inactive">Escape risk</li>
+<li class="flag flag-inactive">CSRA High</li>
+<li class="flag flag-inactive">Cat A</li>
+</td>
+</tr>
+</tbody>
+</div>
+<div class="unit">
+<tbody onclick="window.document.location='profile_done_court.html';">
+<tr>
+<td rowspan="2"><img class="person" src="/public/images/SWAN.jpg" alt="" /></td>
+<td class="prisonnumber"><a href="profile_done_court.html">M2109DE</a></td>
+<td><span class="surname">SWAN</span> MICHAEL</td>
+<td>HMP Bedford</td>
+<td>28/021970</td>
+<td>48</td>
+</tr>
+<tr class="">
+<td colspan="6">
+<li class="flag ">Not for release</li>
+<li class="flag flag-inactive">ACCT</li>
+<li class="flag flag-inactive">Suicide / Self harm</li>
+<li class="flag flag-inactive">Rule 45</li>
+<li class="flag flag-inactive">Escape risk</li>
+<li class="flag flag-inactive">CSRA High</li>
+<li class="flag flag-inactive">Cat A</li>
+</td>
+</tr>
+</tbody>
+</div>
+
+<div class="unit">
+<tbody onclick="window.document.location='profile_done_court.html';">
+<tr>
+<td rowspan="2"><img class="person" src="/public/images/GRADE.jpg" alt="" /></td>
+<td class="prisonnumber"><a href="profile_done_court.html">T8881GF</a></td>
+<td><span class="surname">GRADE</span> JUAN</td>
+<td>HMP Bedford</td>
+<td>28/04/1997</td>
+<td>20</td>
+</tr>
+<tr class="">
+<td colspan="6">
+<li class="flag ">Not for release</li>
+<li class="flag flag-inactive">ACCT</li>
+<li class="flag flag-inactive">Suicide / Self harm</li>
+<li class="flag flag-inactive">Rule 45</li>
+<li class="flag flag-inactive">Escape risk</li>
+<li class="flag flag-inactive">CSRA High</li>
+<li class="flag flag-inactive">Cat A</li>
+</td>
+</tr>
+</tbody>
+</div>
+<div class="unit">
+<tbody class="no_hover">
+<tr>
+<td rowspan="2"><img class="person" src="/public/images/lennie.jpg" alt="" /></td>
+<td>D9358DX</td>
+<td><span class="surname">GODBER</span> LENNIE</td>
+<td>HMP Bedford</td>
+<td>24/03/1978</td>
+<td>39</td>
+<td></td>
+</tr>
+<tr class="">
+<td colspan="6">
+<div><span class="cancelled">Cancelled</span> by: Joe Bloggs, at 08.58 on 27/09/2017. Prisoner refused to leave prison.</div>
+</td>
+</tr>
+</tbody>
+</div> -->
+
+</table>
+
+</main>
+
+{% endblock %}
