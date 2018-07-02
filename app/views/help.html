@@ -5,7 +5,46 @@ Index MPS
 {% endblock %}
 
 {% block content %}
+<!--
+include flowplayer JavaScript file that does
+Flash embedding and provides the Flowplayer API.
+-->
+<script type="text/javascript" src="/public/javascripts/flowplayer-3.2.13.min.js">
+flowplayer("a.myPlayer", "http://releases.flowplayer.org/swf/flowplayer-3.2.18.swf", {
+  // this is the player configuration. You'll learn on upcoming demos.
+  plugins:  {
+    controls:  {
+      volume: false
+    }
+  }
+});
+</script>
+
 <style media="screen">
+/* PLAYER styles */
+/* styling of the container. */
+a.myPlayer {
+  display:block;
+  width: 630px;
+  height:355px;
+  text-align:center;
+  margin:15px;
+  float:left;
+  border:1px solid #999;
+  background-color: black;
+}
+
+/* play button */
+a.myPlayer img {
+  margin-top:130px;
+  border:0px;
+}
+
+/* when container is hovered we alter the border color */
+a.myPlayer:hover {
+  border:1px solid #000;
+}
+/* end of PLAYER styles */
 
 .page_contents_list h2 {
   font-weight: bold;
@@ -108,9 +147,87 @@ Index MPS
         <div class="govuk-govspeak ">
           <hr>
           <h2 id="register" class="heading-medium">How to register to use the ePER system</h2>
+
+          <a class="myPlayer"
+          href="/public/images/Register.flv">
+          <img src="/public/images/play_large.png" alt="Demo video 1"/>
+        </a>
+
+      </div>
+
+      <details>
+
+        <summary><span class="summary">See all steps</span></summary>
+
+        <div class="panel panel-border-narrow">
+
+          <ol class="list list-number">
+
+            <li>Open your account invitation email.</li>
+            <li>Click ‘Setup my account’.</li>
+            <li>Enter your name and password, and click ‘Setup my account’.</li>
+            <li>You’ll be directed to the ePER service. Click ‘Start now’.</li>
+            <li>Sign in with your email address and password.</li>
+            <li>You’re now signed in to the ePER service.</li>
+            <li>Click the start icon in your browser bar to bookmark the page. This will add the service to your browser’s bookmarks folder.</li>
+
+          </ol>
+
+        </div>
+
+      </details>
+    </div>
+
+    <div class="govspeak-wrapper">
+      <div class="govuk-govspeak ">
+        <hr>
+        <h2 id="start" class="heading-medium">How to create an ePER</h2>
+
+        <a class="myPlayer"
+        href="/public/images/Create_a_PER.flv">
+        <img src="/public/images/play_large.png" alt="Demo video 1"/>
+      </a>
+
+        </div>
+
+        <details>
+
+          <summary><span class="summary">See all steps</span></summary>
+
+          <div class="panel panel-border-narrow">
+
+            <ol class="list list-number">
+
+              <li>Enter a prisoner number and search.</li>
+              <li>Click ‘Start new PER’.</li>
+              <li>Check or complete the detainee information.</li>
+              <li>Save your answers.</li>
+              <li>Complete the move information.</li>
+              <li>Save your answers.</li>
+              <li>Scoll to the Offences section and click ‘Edit’.</li>
+              <li>Check or complete the offences information. You can add more offences if you need to.</li>
+              <li>Save your answers.</li>
+              <li>The ePER is ready for Risk and Healthcare information to be added.</li>
+              <li>Click ‘Return to home’ to go back to the dashboard.</li>
+              <li>The new ePER has been added to the dashboard.</li>
+
+
+            </ol>
+
+          </div>
+
+        </details>
+
+
+      </div>
+
+      <div class="govspeak-wrapper">
+        <div class="govuk-govspeak ">
+          <hr>
+          <h2 id="risk" class="heading-medium">How to complete the risk section of the ePER</h2>
           <video width="100%" height="auto" controls>
-            <source src="/public/images/Register.mp4" type="video/mp4">
-            <!-- <source src="/public/images/Register.ogv" type="video/ogg"> -->
+            <source src="/public/images/Risk.mp4" type="video/mp4">
+              <!-- <source src="movie.ogg" type="video/ogg"> -->
               Your browser does not support the video tag.
             </video>
           </div>
@@ -123,13 +240,17 @@ Index MPS
 
               <ol class="list list-number">
 
-                <li>Open your account invitation email.</li>
-                <li>Click ‘Setup my account’.</li>
-                <li>Enter your name and password, and click ‘Setup my account’.</li>
-                <li>You’ll be directed to the ePER service. Click ‘Start now’.</li>
-                <li>Sign in with your email address and password.</li>
-                <li>You’re now signed in to the ePER service.</li>
-                <li>Click the start icon in your browser bar to bookmark the page. This will add the service to your browser’s bookmarks folder.</li>
+                <li>Click on the prisoner number.</li>
+                <li>Scroll to the Risk section and click ‘Edit’.</li>
+                <li>Answer the questions. Check NOMIS and intelligence sources for risk information.</li>
+                <li>Click ‘Save and continue’ to see the next screen.</li>
+                <li>On the summary screen, check your answers.</li>
+                <li>Click ‘Change’ to go back to a question.</li>
+                <li>Click ‘Save and view summary’ to go back to the summary screen.</li>
+                <li>Click ‘Confirm and save’ to save your answers.</li>
+                <li>The Risk section is now complete.</li>
+                <li>Click ‘Return to home’ to go back to the dashboard.</li>
+                <li>The dashboard shows that the Risk section is complete.</li>
 
               </ol>
 
@@ -139,11 +260,12 @@ Index MPS
         </div>
 
         <div class="govspeak-wrapper">
-          <div class="govuk-govspeak ">
+          <div class="govuk-govspeak">
             <hr>
-            <h2 id="start" class="heading-medium">How to create an ePER</h2>
+            <h2 id="health" class="heading-medium">Complete the health section</h2>
             <video width="100%" height="auto" controls>
-              <source src="/public/images/Create_a_PER.mp4" type="video/mp4">
+              <source src="/public/images/Healthcare.mp4" type="video/mp4">
+                <!-- <source src="movie.ogg" type="video/ogg"> -->
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -156,19 +278,17 @@ Index MPS
 
                 <ol class="list list-number">
 
-                  <li>Enter a prisoner number and search.</li>
-                  <li>Click ‘Start new PER’.</li>
-                  <li>Check or complete the detainee information.</li>
-                  <li>Save your answers.</li>
-                  <li>Complete the move information.</li>
-                  <li>Save your answers.</li>
-                  <li>Scoll to the Offences section and click ‘Edit’.</li>
-                  <li>Check or complete the offences information. You can add more offences if you need to.</li>
-                  <li>Save your answers.</li>
-                  <li>The ePER is ready for Risk and Healthcare information to be added.</li>
+                  <li>Click on the prisoner number.</li>
+                  <li>Scroll to the Healthcare section and click ‘Edit’.</li>
+                  <li>Answer the questions.</li>
+                  <li>Click ‘Save and continue’ to go to the next screen.</li>
+                  <li>On the summary screen, check your answers.</li>
+                  <li>Click ‘Change’ to go back to a question.</li>
+                  <li>Click ‘Save and view summary’ to go back to the summary screen.</li>
+                  <li>Click ‘Confirm and save’ to save your answers.</li>
+                  <li>The Healthcare section is now complete.</li>
                   <li>Click ‘Return to home’ to go back to the dashboard.</li>
-                  <li>The new ePER has been added to the dashboard.</li>
-
+                  <li>The dashboard shows that the Healthcare section is complete. </li>
 
                 </ol>
 
@@ -176,15 +296,14 @@ Index MPS
 
             </details>
 
-
           </div>
 
           <div class="govspeak-wrapper">
-            <div class="govuk-govspeak ">
+            <div class="govuk-govspeak">
               <hr>
-              <h2 id="risk" class="heading-medium">How to complete the risk section of the ePER</h2>
+              <h2 id="print" class="heading-medium">How to print an ePER</h2>
               <video width="100%" height="auto" controls>
-                <source src="/public/images/Risk.mp4" type="video/mp4">
+                <source src="/public/images/Print_a_PER.mp4" type="video/mp4">
                   <!-- <source src="movie.ogg" type="video/ogg"> -->
                   Your browser does not support the video tag.
                 </video>
@@ -198,55 +317,12 @@ Index MPS
 
                   <ol class="list list-number">
 
-                    <li>Click on the prisoner number.</li>
-                    <li>Scroll to the Risk section and click ‘Edit’.</li>
-                    <li>Answer the questions. Check NOMIS and intelligence sources for risk information.</li>
-                    <li>Click ‘Save and continue’ to see the next screen.</li>
-                    <li>On the summary screen, check your answers.</li>
-                    <li>Click ‘Change’ to go back to a question.</li>
-                    <li>Click ‘Save and view summary’ to go back to the summary screen.</li>
-                    <li>Click ‘Confirm and save’ to save your answers.</li>
-                    <li>The Risk section is now complete.</li>
-                    <li>Click ‘Return to home’ to go back to the dashboard.</li>
-                    <li>The dashboard shows that the Risk section is complete.</li>
+                    <li>Make sure the Risk, Health and Offences sections are complete.</li>
+                    <li>Click ‘Print’. This opens a preview of the ePER in a new window.</li>
+                    <li>Click the print icon in the top right-hand corner of the screen.
+                      Click ‘Print’.</li>
+                      <li>On the dashboard, the ePER status will change to ‘Issued’ when it has been printed. </li>
 
-                  </ol>
-
-                </div>
-
-              </details>
-            </div>
-
-            <div class="govspeak-wrapper">
-              <div class="govuk-govspeak">
-                <hr>
-                <h2 id="health" class="heading-medium">Complete the health section</h2>
-                <video width="100%" height="auto" controls>
-                  <source src="/public/images/Healthcare.mp4" type="video/mp4">
-                    <!-- <source src="movie.ogg" type="video/ogg"> -->
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-
-                <details>
-
-                  <summary><span class="summary">See all steps</span></summary>
-
-                  <div class="panel panel-border-narrow">
-
-                    <ol class="list list-number">
-
-                      <li>Click on the prisoner number.</li>
-                      <li>Scroll to the Healthcare section and click ‘Edit’.</li>
-                      <li>Answer the questions.</li>
-                      <li>Click ‘Save and continue’ to go to the next screen.</li>
-                      <li>On the summary screen, check your answers.</li>
-                      <li>Click ‘Change’ to go back to a question.</li>
-                      <li>Click ‘Save and view summary’ to go back to the summary screen.</li>
-                      <li>Click ‘Confirm and save’ to save your answers.</li>
-                      <li>The Healthcare section is now complete.</li>
-                      <li>Click ‘Return to home’ to go back to the dashboard.</li>
-                      <li>The dashboard shows that the Healthcare section is complete. </li>
 
                     </ol>
 
@@ -259,9 +335,9 @@ Index MPS
               <div class="govspeak-wrapper">
                 <div class="govuk-govspeak">
                   <hr>
-                  <h2 id="print" class="heading-medium">How to print an ePER</h2>
+                  <h2 id="reprint" class="heading-medium">How to reprint a PER</h2>
                   <video width="100%" height="auto" controls>
-                    <source src="/public/images/Print_a_PER.mp4" type="video/mp4">
+                    <source src="/public/images/Reprint_a_PER.mp4" type="video/mp4">
                       <!-- <source src="movie.ogg" type="video/ogg"> -->
                       Your browser does not support the video tag.
                     </video>
@@ -275,11 +351,46 @@ Index MPS
 
                       <ol class="list list-number">
 
-                        <li>Make sure the Risk, Health and Offences sections are complete.</li>
-                        <li>Click ‘Print’. This opens a preview of the ePER in a new window.</li>
-                        <li>Click the print icon in the top right-hand corner of the screen.
-                          Click ‘Print’.</li>
-                          <li>On the dashboard, the ePER status will change to ‘Issued’ when it has been printed. </li>
+                        <li>If an ePER is ‘Issued’, it has already been printed.</li>
+                        <li>Click on the prisoner number.</li>
+                        <li>Scroll to the bottom of the ePER.</li>
+                        <li>Click ‘Reprint’</li>
+                        <li>Click ‘Reprint this PER’. This opens a preview of the ePER in a new window.</li>
+                        <li>Click the print icon in the top right-hand corner of the screen.</li>
+                        <li>Click ‘Print’</li>
+
+                      </ol>
+
+                    </div>
+
+                  </details>
+
+                </div>
+
+                <div class="govspeak-wrapper">
+                  <div class="govuk-govspeak">
+                    <hr>
+                    <h2 id="cancel" class="heading-medium">How to cancel a PER</h2>
+                    <video width="100%" height="auto" controls>
+                      <source src="/public/images/Cancel_a_PER.mp4" type="video/mp4">
+                        <!-- <source src="movie.ogg" type="video/ogg"> -->
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                    <details>
+
+                      <summary><span class="summary">See all steps</span></summary>
+
+                      <div class="panel panel-border-narrow">
+
+                        <ol class="list list-number">
+
+                          <li>Click on the prisoner number.</li>
+                          <li>Scroll to the bottom of the ePER</li>
+                          <li>Click ‘Cancel PER’</li>
+                          <li>Enter the reason for cancelling the PER</li>
+                          <li>Click ‘Cancel this PER’</li>
+                          <li>The PER is cancelled. The reason for the cancellation will be displayed on the dashboard. </li>
 
 
                         </ol>
@@ -287,16 +398,14 @@ Index MPS
                       </div>
 
                     </details>
-
                   </div>
 
                   <div class="govspeak-wrapper">
-                    <div class="govuk-govspeak">
+                    <div class="govuk-govspeak ">
                       <hr>
-                      <h2 id="reprint" class="heading-medium">How to reprint a PER</h2>
+                      <h2 id="manageaccounts" class="heading-medium">How to manage user accounts</h2>
                       <video width="100%" height="auto" controls>
-                        <source src="/public/images/Reprint_a_PER.mp4" type="video/mp4">
-                          <!-- <source src="movie.ogg" type="video/ogg"> -->
+                        <source src="/public/images/Managing_user_accounts.mp4" type="video/mp4">
                           Your browser does not support the video tag.
                         </video>
                       </div>
@@ -306,110 +415,43 @@ Index MPS
                         <summary><span class="summary">See all steps</span></summary>
 
                         <div class="panel panel-border-narrow">
-
+                          <p style="font-weight:bold;">Adding a user to your team</p>
                           <ol class="list list-number">
-
-                            <li>If an ePER is ‘Issued’, it has already been printed.</li>
-                            <li>Click on the prisoner number.</li>
-                            <li>Scroll to the bottom of the ePER.</li>
-                            <li>Click ‘Reprint’</li>
-                            <li>Click ‘Reprint this PER’. This opens a preview of the ePER in a new window.</li>
-                            <li>Click the print icon in the top right-hand corner of the screen.</li>
-                            <li>Click ‘Print’</li>
+                            <li>Go to <a href="https://www.signon.dsd.io/users/sign_in">www.signon.dsd.io/users/sign_in</a> and sign in using your email address and password.</li>
+                            <li>Scroll to ‘Your teams’ and click ‘Moving People Safely’.</li>
+                            <li>You’ll see users who already have access to the service.</li>
+                            <li>Click ‘Add user’.</li>
+                            <li>Enter their email address.</li>
+                            <li>If you want them to be an admin user, tick ‘Is admin?’.</li>
+                            <li>Click ‘Add user’.</li>
+                            <li>The new user is added to the team. They will be sent an email invite to accept.</li>
+                          </ol>
+                          <p style="font-weight:bold;">Removing admin rights</p>
+                          <ol class="list list-number">
+                            <li>Scroll to ‘Your teams’ and click ‘Moving People Safely’.</li>
+                            <li>Find the user.</li>
+                            <li>Click ‘Remove admin rights’.</li>
+                            <li>The user’s admin rights have been removed.</li>
+                            <li>To restore their admin rights, click ‘Make admin’.</li>
+                          </ol>
+                          <p style="font-weight:bold;">Removing a user from your team</p>
+                          <ol class="list list-number">
+                            <li>Scroll to ‘Your teams’ and click ‘Moving People Safely’.</li>
+                            <li>Find the user.</li>
+                            <li>Click ‘Remove from team’.</li>
+                            <li>The user is removed from the team.</li>
 
                           </ol>
 
                         </div>
 
                       </details>
-
                     </div>
 
-                    <div class="govspeak-wrapper">
-                      <div class="govuk-govspeak">
-                        <hr>
-                        <h2 id="cancel" class="heading-medium">How to cancel a PER</h2>
-                        <video width="100%" height="auto" controls>
-                          <source src="/public/images/Cancel_a_PER.mp4" type="video/mp4">
-                            <!-- <source src="movie.ogg" type="video/ogg"> -->
-                            Your browser does not support the video tag.
-                          </video>
-                        </div>
-                        <details>
+                  </div>
 
-                          <summary><span class="summary">See all steps</span></summary>
+                </div>
 
-                          <div class="panel panel-border-narrow">
+              </main>
 
-                            <ol class="list list-number">
-
-                              <li>Click on the prisoner number.</li>
-                              <li>Scroll to the bottom of the ePER</li>
-                              <li>Click ‘Cancel PER’</li>
-                              <li>Enter the reason for cancelling the PER</li>
-                              <li>Click ‘Cancel this PER’</li>
-                              <li>The PER is cancelled. The reason for the cancellation will be displayed on the dashboard. </li>
-
-
-                            </ol>
-
-                          </div>
-
-                        </details>
-                      </div>
-
-                      <div class="govspeak-wrapper">
-                        <div class="govuk-govspeak ">
-                          <hr>
-                          <h2 id="manageaccounts" class="heading-medium">How to manage user accounts</h2>
-                          <video width="100%" height="auto" controls>
-                            <source src="/public/images/Managing_user_accounts.mp4" type="video/mp4">
-                              Your browser does not support the video tag.
-                            </video>
-                          </div>
-
-                          <details>
-
-                            <summary><span class="summary">See all steps</span></summary>
-
-                            <div class="panel panel-border-narrow">
-                              <p style="font-weight:bold;">Adding a user to your team</p>
-                              <ol class="list list-number">
-                                <li>Go to <a href="https://www.signon.dsd.io/users/sign_in">www.signon.dsd.io/users/sign_in</a> and sign in using your email address and password.</li>
-                                <li>Scroll to ‘Your teams’ and click ‘Moving People Safely’.</li>
-                                <li>You’ll see users who already have access to the service.</li>
-                                <li>Click ‘Add user’.</li>
-                                <li>Enter their email address.</li>
-                                <li>If you want them to be an admin user, tick ‘Is admin?’.</li>
-                                <li>Click ‘Add user’.</li>
-                                <li>The new user is added to the team. They will be sent an email invite to accept.</li>
-                              </ol>
-                              <p style="font-weight:bold;">Removing admin rights</p>
-                              <ol class="list list-number">
-                                <li>Scroll to ‘Your teams’ and click ‘Moving People Safely’.</li>
-                                <li>Find the user.</li>
-                                <li>Click ‘Remove admin rights’.</li>
-                                <li>The user’s admin rights have been removed.</li>
-                                <li>To restore their admin rights, click ‘Make admin’.</li>
-                              </ol>
-                              <p style="font-weight:bold;">Removing a user from your team</p>
-                              <ol class="list list-number">
-                                <li>Scroll to ‘Your teams’ and click ‘Moving People Safely’.</li>
-                                <li>Find the user.</li>
-                                <li>Click ‘Remove from team’.</li>
-                                <li>The user is removed from the team.</li>
-
-                              </ol>
-
-                            </div>
-
-                          </details>
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                  </main>
-
-                  {% endblock %}
+              {% endblock %}
