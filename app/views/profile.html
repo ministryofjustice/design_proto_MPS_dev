@@ -188,7 +188,7 @@ font-weight: bold;
           To
         </h6>
         <p>
-          {{data.to}}
+          Destination name
         </p>
       </div>
       <div class="tile col-3">
@@ -202,6 +202,7 @@ font-weight: bold;
         </p>
       </div>
     </section>
+
     <section>
       <div class="newpanel newpanel_link">
         <span class="heading-medium">Personal details</span>
@@ -220,7 +221,7 @@ font-weight: bold;
             Prison Number
           </h6>
           <p>
-            A1234AB
+            {{data.pn}}
           </p>
         </div>
         <div class="tile col-4">
@@ -228,7 +229,7 @@ font-weight: bold;
             CRO number
           </h6>
           <p>
-            596835/08K
+            {{data.cro}}
           </p>
         </div>
         <div class="tile col-4">
@@ -236,7 +237,7 @@ font-weight: bold;
             PNC Number
           </h6>
           <p>
-            08/783296E
+            {{data['pnc_num']}}
           </p>
         </div>
         <div class="tile col-4">
@@ -244,10 +245,10 @@ font-weight: bold;
             Date of birth
           </h6>
           <p>
-            24 May 1973
+            {{data['dob']}}
           </p>
         </div>
-        <div class="tile col-8">
+        <div class="tile col-4">
           <h6>
             Age
           </h6>
@@ -255,20 +256,12 @@ font-weight: bold;
             53
           </p>
         </div>
-        <div class="tile col-8">
-          <h6>
-            Sex
-          </h6>
-          <p>
-            M
-          </p>
-        </div>
         <div class="tile col-4">
           <h6>
-            Category
+            Gender
           </h6>
           <p>
-            Cat B
+            {{data['gender']}}
           </p>
         </div>
         <!-- <div class="tile col-4"></div> -->
@@ -277,7 +270,7 @@ font-weight: bold;
             Nationality
           </h6>
           <p>
-            Jamaican
+            {{data['nationality']}}
           </p>
         </div>
         <div class="tile col-4">
@@ -285,7 +278,7 @@ font-weight: bold;
             Religion
           </h6>
           <p>
-            Hindu
+            {{data['religion']}}
           </p>
         </div>
         <div class="tile col-4">
@@ -293,7 +286,7 @@ font-weight: bold;
             Ethnicity
           </h6>
           <p>
-            W1
+            {{data['ethnicity']}}
           </p>
         </div>
         <div class="tile col-4">
@@ -301,7 +294,7 @@ font-weight: bold;
             Preferred language
           </h6>
           <p>
-            English
+            {{data['language']}}
           </p>
         </div>
         <div class="tile col-4">
@@ -309,15 +302,24 @@ font-weight: bold;
             Interpreter
           </h6>
           <p>
-            Not required
+            {{data.interpreter}}
           </p>
         </div>
-        <div class="tile col-full">
+        <br>
+        <div class="tile col-4">
+          <h6>
+            Category
+          </h6>
+          <p>
+            {{data['cat']}}
+          </p>
+        </div>
+        <div class="tile col-4" style="display:inline-block !important">
           <h6>
             Diet
           </h6>
           <p>
-            Medical - Diabetic
+            {{data['diet']}}
           </p>
         </div>
         <div class="tile col-full">
@@ -325,7 +327,7 @@ font-weight: bold;
             Personal Emergency Evacuation Plan
           </h6>
           <p>
-            Double amputie and hearing impaired. To be alerted and assisted with evacuation.
+            {{data['peep_info']}}
           </p>
         </div>
       </div>
@@ -334,12 +336,11 @@ font-weight: bold;
           Aliases
         </h6>
         <p>
-          FLETCH,<br>
-          ARKWRIGHT,<br>
-          Norman Stanley Fletcher
+          {{data['alias']}}
         </p>
       </div>
     </section>
+
     <section>
       <div class="newpanel newpanel_link">
         <span class="heading-medium">Offences</span>
