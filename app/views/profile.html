@@ -9,25 +9,43 @@ Check your answers
 window.addEventListener("load", loadFunction);
 function loadFunction() {
   dataDump({{ data | dump | safe}});
-  document.getElementById('date').innerHTML = getDate();
+  // document.getElementById('date').innerHTML = getDate();
   document.getElementById('content').style = 'display:normal;'
   nfrNo();
+  nfrYes();
+  specialVehicleYes();
+  specialRequirementsYes();
 }
 function nfrNo(){
   console.log('nfrNo');
   if({{data.nfr == 'No'}}){
     document.getElementById('nfr').innerHTML = 'No known risk';
+    document.getElementById('notforreleaseno').style = 'display.normal;'
   }
 }
 function nfrYes(){
-  // console.log('nfrYes');
-  // var nfr_state = {{data['nfr_state'] | dump | safe }};
-  // console.log('nfr_state = ' + nfr_state);
-  // document.getElementById('nfr').innerHTML = nfr_state;
-  // if (nfr_state == "Other") {
-  //   console.log('nfrYes Other');
-  //   document.getElementById('nfr').innerHTML = {{data['nfr_info'] | dump | safe }};
-  // }
+  if ({{data.nfr == "Yes"}}) {
+    document.getElementById('nfr').style = 'display:none;'
+    document.getElementById('notforreleaseyes').style = 'display.normal;'
+  }
+}
+
+function specialVehicleYes(){
+  if ({{data.special_vehicle == "Yes"}}) {
+    document.getElementById('special_vehicle').style = 'display:none;'
+    document.getElementById('specialvehicleyes').style = 'display.normal;'
+  } else {
+    document.getElementById('special_vehicle').innerHTML = 'None required'
+    document.getElementById('specialvehicleno').style = 'display.normal;'
+  }
+}
+
+function specialRequirementsYes(){
+  if ({{data.special_requirements == "Yes"}}) {
+    document.getElementById('special_requirements').style = 'display:none;'
+  } else {
+    document.getElementById('special_requirements').innerHTML = 'None required'
+  }
 }
 
 </script>
@@ -72,6 +90,9 @@ section{
   font-weight: bold;
   font-size: 19px;
   margin: 0px 0px;
+}
+.col-2 {
+  width: 49%;
 }
 .col-3{
   width: 32%;
@@ -147,13 +168,18 @@ font-weight: bold;
   <!-- {% include "includes/breadcrumb_profile.html" %} -->
   <h2 class="heading-large">{{data['pn']}}: BARKER <span class="unbold">RONNIE</span></h2>
   <div class="column-two-thirds">
-    <li class="flag" id="notforrelease">Not for release</li>
-    <li class="flag flag-inactive">ACCT</li>
+    <!-- notforrelease -->
+    <li class="flag" id="notforreleaseyes" style="display:none;">Not for release</li>
+    <li class="flag flag-inactive" id="notforreleaseno" style="display:none;">Not for release</li>
+    <li class="flag" id="specialvehicleyes" style="display:none;">Special vehicle</li>
+    <li class="flag flag-inactive" id="specialvehicleno" style="display:none;">Special vehicle</li>
+    <!-- <li class="flag" id="notforrelease">Not for release</li> -->
+    <!-- <li class="flag flag-inactive">ACCT</li>
     <li class="flag flag-inactive">Suicide / Self harm</li>
     <li class="flag">Rule 45</li>
     <li class="flag flag-inactive">Escape risk</li>
     <li class="flag flag-inactive">Cell share risk</li>
-    <li class="flag flag-inactive">Cat A</li>
+    <li class="flag flag-inactive">Cat A</li> -->
     <!-- <hr style="margin: 0px 0px 0px 0px"> -->
     <section>
       <div class="newpanel newpanel_link">
@@ -171,8 +197,8 @@ font-weight: bold;
         <h6>
           Date of travel
         </h6>
-        <p id='date'>
-
+        <p>
+          {{data.dateoftravel}}
         </p>
       </div>
       <div class="tile col-3">
@@ -195,10 +221,33 @@ font-weight: bold;
         <h6>
           Release status
         </h6>
-        <p id="nfr">
-          <!-- <span id="yesno" style="display:none;">{{ data['nfr'] }}</span> -->
-          <span>{{ data['nfr_state'] }}</span>
-          <!-- <br> {{ data['nfrDisplay'] }} -->
+        <p>
+          <span>
+            <span id="nfr">{{ data['nfr'] }}</span>
+            {{ data['nfr_state'] }}
+          </span>
+        </p>
+      </div>
+      <div class="tile col-2">
+        <h6>
+          Special vehicle requirements
+        </h6>
+        <p>
+          <span>
+            <span id="special_vehicle">{{ data['special_vehicle'] }}</span>
+            {{ data['special_vehicle_info'] }}
+          </span>
+        </p>
+      </div>
+      <div class="tile col-2" style="display:block;">
+        <h6>
+          Other special requirements
+        </h6>
+        <p>
+          <span>
+            <span id="special_requirements">{{ data['special_requirements'] }}</span>
+            {{ data['special_requirements_info'] }}
+          </span>
         </p>
       </div>
     </section>

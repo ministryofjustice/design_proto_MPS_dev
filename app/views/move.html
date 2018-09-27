@@ -161,17 +161,35 @@ function setNfrState(){
             </div>
           </div>
 
-
-          <div class="form-group">
-            <label class="form-label-bold" for="datedummy">
+          <div class="form-group" style="margin-bottom:15px !important">
+            <label class="form-label-bold" for="dateoftravel">
               Date of travel
               <p class="form-hint">
                 DD/MM/YYYY
               </p>
             </label>
-            <input class="form-control" id="datedummy" type="text" name="datedummy">
+            <div class="form-group">
+              <fieldset class="inline" style="margin-bottom:20px">
+
+                <legend class="visually-hidden"></legend>
+
+                <div class="multiple-choice">
+                  <input id="radio-inline-30" type="radio" name="day" value="Today" onclick="setdateToday()"  {{ checked("day", "Today") }}>
+                  <label for="radio-inline-30">Today</label>
+                </div>
+
+                <div class="multiple-choice">
+                  <input id="radio-inline-31" type="radio" name="day" value="Tomorrow" onclick="setdateTomorrow()" {{ checked("day", "Tomorrow") }} >
+                  <label for="radio-inline-31">Tomorrow</label>
+                </div>
+
+              </fieldset>
+              <input class="form-control" id="dateoftravel" type="text" name="dateoftravel" value="{{data['dateoftravel']}}">
+            </div>
           </div>
         </fieldset>
+
+
         <!-- question -->
         <h2 class="form-label-bold">
           Is there a reason they should not be released?
@@ -236,10 +254,65 @@ function setNfrState(){
 
         <div class="panel panel-border-narrow js-hidden" id="nfr-info">
           <div class="form-group">
-            <label class="form-label" for="textarea-b">
+            <label class="form-label" for="textarea-a">
               Give details of why the detainee is not for release
             </label>
-            <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="nfr_info">{{data['nfr_info']}}</textarea>
+            <textarea class="form-control" id="textarea-a" cols="30" rows="3" name="nfr_info">{{data['nfr_info']}}</textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <fieldset class="inline">
+            <label class="form-label-bold">
+              Do they require a special vehicle?
+            </label>
+            <p class="form-hint">
+              This could be a specially-adapted prison van (for example, to accommodate wheelchairs) or a taxi.
+            </p>
+            <legend class="visually-hidden"></legend>
+            <div class="multiple-choice" data-target="special_vehicle-info">
+              <input id="radio-inline-17" type="radio" name="special_vehicle" value="Yes" {{ checked("special_vehicle", "Yes") }}>
+              <label for="radio-inline-17">Yes</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-inline-18" type="radio" name="special_vehicle" value="No" {{ checked("special_vehicle", "No") }}>
+              <label for="radio-inline-18">No</label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden" id="special_vehicle-info">
+          <div class="form-group">
+            <label class="form-label" for="textarea-b">
+              Please explain why they need a special vehicle:
+            </label>
+            <textarea class="form-control form-control-3-4" id="textarea-b" cols="30" rows="3" name="special_vehicle_info">{{data['special_vehicle_info']}}</textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <fieldset class="inline">
+            <label class="form-label-bold">
+              Do they have any other special transport requirements?
+            </label>    
+            <legend class="visually-hidden"></legend>
+            <div class="multiple-choice" data-target="special_requirements-info">
+              <input id="radio-inline-27" type="radio" name="special_requirements" value="Yes" {{ checked("special_requirements", "Yes") }}>
+              <label for="radio-inline-27">Yes</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-inline-28" type="radio" name="special_requirements" value="No" {{ checked("special_requirements", "No") }}>
+              <label for="radio-inline-28">No</label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden" id="special_requirements-info">
+          <div class="form-group">
+            <label class="form-label" for="textarea-c">
+              Give details:
+            </label>
+            <textarea class="form-control form-control-3-4" id="textarea-c" cols="30" rows="3" name="special_requirements_info">{{data['special_requirements_info']}}</textarea>
           </div>
         </div>
 
