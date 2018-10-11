@@ -120,12 +120,12 @@ GOV.UK prototype kit
         </label>
         <input class="form-control" id="cat" type="text-area" name="cat" value="{{data['cat']}}">
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label class="form-label-bold" for="language">
           Preferred language
         </label>
         <input class="form-control" id="language" type="text-area" name="language" value="{{data['language']}}">
-      </div>
+      </div> -->
       <div class="form-group">
         <fieldset class="inline">
           <legend>
@@ -143,6 +143,14 @@ GOV.UK prototype kit
               </div>
 
         </fieldset>
+      </div>
+      <div class="panel panel-border-narrow js-hidden" id="interpreter_info">
+        <div class="form-group">
+          <label class="form-label" for="language">
+            Preferred language
+          </label>
+          <input class="form-control" id="language" type="text-area" name="language" value="{{data['language']}}">
+        </div>
       </div>
 
       <div class="form-group">
