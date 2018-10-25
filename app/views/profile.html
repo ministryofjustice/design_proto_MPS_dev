@@ -20,6 +20,18 @@ function loadFunction() {
   rule45no();
   travelWithChildNo();
   travelWithChildYes();
+  cellshareriskNo();
+  cellshareriskYes();
+}
+function cellshareriskNo(){
+  if({{data.csra== "CSRA Standard"}}){
+    document.getElementById('cellshareriskno').style = 'display:normal;'
+  }
+}
+function cellshareriskYes(){
+  if({{data.csra== "CSRA High"}}){
+    document.getElementById('cellshareriskyes').style = 'display:normal;'
+  }
 }
 function travelWithChildNo(){
   if({{data.travel_with_child == "No"}}){
@@ -214,8 +226,11 @@ font-weight: bold;
     <li class="flag" id="travelwithchildyes" style="display:none;">Travel with child</li>
     <li class="flag flag-inactive" id="travelwithchildno" style="display:none;">Travel with child</li>
 
-    <li class="flag" id="rule45yes" style="display:none;">In Segregation</li>
-    <li class="flag flag-inactive" id="rule45no" style="display:none;">In Segregation</li>
+    <li class="flag" id="cellshareriskyes" style="display:none;">Cell share risk</li>
+    <li class="flag flag-inactive" id="cellshareriskno" style="display:none;">Cell share risk</li>
+
+    <li class="flag" id="rule45yes" style="display:none;">Segregated</li>
+    <li class="flag flag-inactive" id="rule45no" style="display:none;">Segregated</li>
     <!-- <li class="flag" id="notforrelease">Not for release</li> -->
     <!-- <li class="flag flag-inactive">ACCT</li>
     <li class="flag flag-inactive">Suicide / Self harm</li>
