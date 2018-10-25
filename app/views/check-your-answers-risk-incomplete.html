@@ -67,160 +67,160 @@ table th{
         Incomplete
       </span>
       Last confirmed: Firstname Surname, HH:MM | DD Mon YYYY
-      <br>
+      <!-- commented out automation feature -->
+      <!-- <br>
       <span style="margin: 15px 0 0px 0;" class="nomis-verified"></span>
-      <span style="font-weight:normal; padding-left:10px;">NOMIS alerts verified: HH:MM | DD Mon YYYY</span>
+      <span style="font-weight:normal; padding-left:10px;">NOMIS alerts verified: HH:MM | DD Mon YYYY</span> -->
     </p>
 
-    <div class="notice" style="width:670px;">
-      <i class="icon icon-important">
-      </i>
-      <strong class="bold-small">
-        Some questions have been automatically answered based on active NOMIS alerts.<br>Check all answers and complete any missing questions.
-      </strong>
-      <!-- <strong class="bold-small">
-      NOMIS alerts and comments that can be safely automated have been. Check and complete all questions.
-    </strong> -->
-  </div>
-  &nbsp;
-  <form id="radioForm">
-    <div class="form-group">
-      <fieldset class="inline">
-        <div class="multiple-choice">
-          <input id="radio-inline-1" type="radio" name="missing" value="No" {{ checked("missing", "No") }} onchange="formSubmit(this)">
-          <label for="radio-inline-1">Show all answers</label>
-        </div>
-        <div class="multiple-choice">
-          <input id="radio-inline-2" type="radio" name="missing" value="Yes" {{ checked("missing", "Yes") }} onchange="formSubmit(this)">
-          <label for="radio-inline-2">Show missing answers only</label>
-        </div>
-      </fieldset>
-    </div>
-  </form>
-  <table id="myTable" class="check-your-answers column-two-thirds" style="">
-    <col width="35%">
-    <col width="20%">
-    <col width="auto">
-    <th>Risk to self</th>
+    <!-- commented out automation feature -->
+    <!-- <div class="notice" style="width:670px;">
+    <i class="icon icon-important">
+  </i>
+  <strong class="bold-small">
+  Some questions have been automatically answered based on active NOMIS alerts.<br>Check all answers and complete any missing questions.
+</strong>
+</div>
+&nbsp;
+<form id="radioForm">
+<div class="form-group">
+<fieldset class="inline">
+<div class="multiple-choice">
+<input id="radio-inline-1" type="radio" name="missing" value="No" {{ checked("missing", "No") }} onchange="formSubmit(this)">
+<label for="radio-inline-1">Show all answers</label>
+</div>
+<div class="multiple-choice">
+<input id="radio-inline-2" type="radio" name="missing" value="Yes" {{ checked("missing", "Yes") }} onchange="formSubmit(this)">
+<label for="radio-inline-2">Show missing answers only</label>
+</div>
+</fieldset>
+</div>
+</form> -->
+<table id="myTable" class="check-your-answers column-two-thirds" style="">
+  <col width="35%">
+  <col width="20%">
+  <col width="auto">
+  <th>Risk to self</th>
+  <th></th>
+  <th class="change-answer"><a href="risk_01.html">Change <span class="visuallyhidden">change question 1</span></th>
+    <tbody>
+      <tr>
+        <td>
+          ACCT status
+        </td>
+        <td>
+          {{ data['acct'] }}
+        </td>
+        <td>
+          {{ data['acct_date'] }}<br>{{ data['acct_info'] }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Suicide or self harm risk
+        </td>
+        <td>
+          {{ data['selfharm'] }}
+        </td>
+        <td>
+          {{ data['selfharm_info'] }}
+        </td>
+      </tr>
+    </tbody>
+    <th>Segregation</th>
     <th></th>
-    <th class="change-answer"><a href="risk_01.html">Change <span class="visuallyhidden">change question 1</span></th>
-      <tbody>
-        <tr>
-          <td>
-            ACCT status
-          </td>
-          <td>
-            {{ data['acct'] }}
-          </td>
-          <td>
-            {{ data['acct_date'] }}<br>{{ data['acct_info'] }}
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Suicide or self harm risk
-          </td>
-          <td>
-            {{ data['selfharm'] }}
-          </td>
-          <td>
-            {{ data['selfharm_info'] }}
-          </td>
-        </tr>
-      </tbody>
-      <th>Segregation</th>
-      <th></th>
-      <th class="change-answer">
-        <a href="risk_02.html">
-          Change <span class="visuallyhidden">change question 2</span>
-        </a>
+    <th class="change-answer">
+      <a href="risk_02.html">
+        Change <span class="visuallyhidden">change question 2</span>
+      </a>
+    </th>
+    <tbody>
+      <tr>
+        <td>
+          Cell share risk
+        </td>
+        <td>
+          {{ data['csra'] }}
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          In segregation
+        </td>
+        <td>
+          {{ data['rule45'] }}
+        </td>
+        <td>
+          {{ data['rule45_info'] }}
+        </td>
+      </tr>
+      <tr>
+        <td>Vulnerable prisoner</td>
+        <td>{{data['vulnerable']}}</td>
+        <td>{{data['vulnerable_info']}}</td>
+      </tr>
+    </tbody>
+
+    <th>Security</th>
+    <th></th>
+    <th class="change-answer">
+      <a href="risk_03.html">
+        Change <span class="visuallyhidden">change question 3</span>
+      </a>
+    </th>
+    <tbody>
+      <tr>
+        <td>
+          Multiple officer unlock/escort
+        </td>
+        <td>
+          {{ data['controlledunlock'] }}
+        </td>
+        <td>
+          {{ data['controlledunlock_info'] }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          High public interest
+        </td>
+        <td>
+          {{ data['publicInterest'] }}
+        </td>
+        <td>
+          {{ data["publicInterest_info"] }}
+        </td>
+      </tr>
+      <tr>
+        <td>PNC warnings</td>
+        <td>
+          {{ data['pnc'] }}
+        </td>
+        <td>{{data['pnc_info'] }}</td>
+      </tr>
+    </tbody>
+
+    <th>Violence</th>
+    <th></th>
+    <th class="change-answer">
+      <a href="risk_04.html">
+        Change <span class="visuallyhidden">change question 4</span>
       </th>
       <tbody>
         <tr>
           <td>
-            Cell share risk
+            Violent or dangerous
           </td>
           <td>
-            {{ data['csra'] }}
+            {{ data['violent_dangerous'] }}
           </td>
           <td>
+            {{ data['violent_dangerous_info'] }}
           </td>
-        </tr>
-        <tr>
-          <td>
-            Rule 45
-          </td>
-          <td>
-            {{ data['rule45'] }}
-          </td>
-          <td>
-          </td>
-        </tr>
-        <tr>
-          <td>Vulnerable prisoner</td>
-          <td>{{data['vulnerable']}}</td>
-          <td>{{data['vulnerable_info']}}</td>
         </tr>
       </tbody>
-
-      <th>Security</th>
-      <th></th>
-      <th class="change-answer">
-        <a href="risk_03.html">
-          Change <span class="visuallyhidden">change question 3</span>
-        </a>
-      </th>
-      <tbody>
-        <tr>
-          <td>
-            Multiple officer unlock/escort
-          </td>
-          <td>
-            {{ data['controlledunlock'] }}
-          </td>
-          <td>
-            {{ data['controlledunlock_info'] }}
-          </td>
-        </tr>
-        <tr>
-          <td>
-            High public interest
-          </td>
-          <td>
-            {{ data['publicInterest'] }}
-          </td>
-          <td>
-            {{ data["publicInterest_info"] }}
-          </td>
-        </tr>
-        <tr>
-          <td>PNC warnings</td>
-          <td>
-            {{ data['pnc'] }}
-          </td>
-          <td>{{data['pnc_info'] }}</td>
-        </tr>
-      </tbody>
-
-      <th>Violence</th>
-      <th></th>
-      <th class="change-answer">
-        <a href="risk_04.html">
-          Change <span class="visuallyhidden">change question 4</span>
-        </th>
-        <tbody>
-          <tr>
-            <td>
-              Violent or dangerous
-            </td>
-            <td>
-              {{ data['violent_dangerous'] }}
-            </td>
-            <td>
-              {{ data['violent_dangerous_info'] }}
-            </td>
-          </tr>
-        </tbody>
 
       <th>Harassment and gangs</th>
       <th></th>

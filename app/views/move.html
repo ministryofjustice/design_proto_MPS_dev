@@ -292,6 +292,38 @@ function setNfrState(){
 
         <div class="form-group">
           <fieldset class="inline">
+            <label class="form-label-bold">
+              Are they travelling with a child?
+            </label>
+            <legend class="visually-hidden"></legend>
+            <div class="multiple-choice" data-target="travel_with_child-info">
+              <input id="radio-inline-97" type="radio" name="travel_with_child" value="Yes" {{ checked("travel_with_child", "Yes") }}>
+              <label for="radio-inline-97">Yes</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-inline-98" type="radio" name="travel_with_child" value="No" {{ checked("travel_with_child", "No") }}>
+              <label for="radio-inline-98">No</label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden" id="travel_with_child-info">
+          <div class="form-group">
+            <label class="form-label" for="child_name">
+              Child's name
+            </label>
+            <input class="form-control" id="child_name" type="text-area" name="child_name" value="{{data['child_name']}}">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="child_dob">
+              Child's date of birth
+            </label>
+            <input class="form-control" id="child_dob" type="text-area" name="child_dob" value="{{data['child_dob']}}">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <fieldset class="inline">
             <label class="form-label-bold optional">
               Do they have any other special transport requirements?
             </label>

@@ -14,29 +14,48 @@ function loadFunction() {
   nfrNo();
   nfrYes();
   specialVehicleYes();
+  specialVehicleNo();
   specialRequirementsYes();
+  rule45Yes();
+  rule45no();
+  travelWithChildNo();
+  travelWithChildYes();
+}
+function travelWithChildNo(){
+  if({{data.travel_with_child == "No"}}){
+    document.getElementById('travelwithchildno').style = 'display:normal;'
+    document.getElementById('travel_with_child_info').style = 'display:none;'
+  }
+}
+function travelWithChildYes(){
+  if({{data.travel_with_child == "Yes"}}){
+    document.getElementById('travelwithchildyes').style = 'display:normal;'
+  }
 }
 function nfrNo(){
-  console.log('nfrNo');
   if({{data.nfr == 'No'}}){
     document.getElementById('nfr').innerHTML = 'No known risk';
-    document.getElementById('notforreleaseno').style = 'display.normal;'
+    document.getElementById('notforreleaseno').style = 'display:normal;'
   }
 }
 function nfrYes(){
   if ({{data.nfr == "Yes"}}) {
     document.getElementById('nfr').style = 'display:none;'
-    document.getElementById('notforreleaseyes').style = 'display.normal;'
+    document.getElementById('notforreleaseyes').style = 'display:normal;'
   }
 }
 
 function specialVehicleYes(){
   if ({{data.special_vehicle == "Yes"}}) {
-    document.getElementById('special_vehicle').style = 'display:none;'
-    document.getElementById('specialvehicleyes').style = 'display.normal;'
-  } else {
-    document.getElementById('special_vehicle').innerHTML = 'None required'
-    document.getElementById('specialvehicleno').style = 'display.normal;'
+    document.getElementById('specialvehicleyes').style = 'display:normal;'
+  }
+}
+
+function specialVehicleNo(){
+  if ({{data.special_vehicle == "No"}}) {
+    document.getElementById('special_vehicle_info').innerHTML = 'None'
+    document.getElementById('specialvehicleno').style = 'display:normal;'
+    document.getElementById('specialvehicleyes').style = 'display:none;'
   }
 }
 
@@ -44,7 +63,20 @@ function specialRequirementsYes(){
   if ({{data.special_requirements == "Yes"}}) {
     document.getElementById('special_requirements').style = 'display:none;'
   } else {
-    document.getElementById('special_requirements').innerHTML = 'None required'
+    document.getElementById('special_requirements').innerHTML = 'None'
+  }
+}
+
+function rule45Yes(){
+  if ({{data.rule45 == "Yes"}}) {
+    document.getElementById('rule45no').style = 'display:none;'
+    document.getElementById('rule45yes').style = 'display:normal;'
+  }
+}
+function rule45no(){
+  if ({{data.rule45 == "No"}}) {
+    document.getElementById('rule45no').style = 'display:normal;'
+    document.getElementById('rule45yes').style = 'display:none;'
   }
 }
 
@@ -160,7 +192,11 @@ td:first-child {
 /*.check-your-answers td:first-child + td {
 font-weight: bold;
 }*/
-
+.child-info{
+  font-weight: normal;
+  font-size: 16px;
+  /*display: block;*/
+}
 </style>
 <main id="content" role="main" style="">
   <p id="testp">
@@ -171,8 +207,15 @@ font-weight: bold;
     <!-- notforrelease -->
     <li class="flag" id="notforreleaseyes" style="display:none;">Not for release</li>
     <li class="flag flag-inactive" id="notforreleaseno" style="display:none;">Not for release</li>
+
     <li class="flag" id="specialvehicleyes" style="display:none;">Special vehicle</li>
     <li class="flag flag-inactive" id="specialvehicleno" style="display:none;">Special vehicle</li>
+
+    <li class="flag" id="travelwithchildyes" style="display:none;">Travel with child</li>
+    <li class="flag flag-inactive" id="travelwithchildno" style="display:none;">Travel with child</li>
+
+    <li class="flag" id="rule45yes" style="display:none;">In Segregation</li>
+    <li class="flag flag-inactive" id="rule45no" style="display:none;">In Segregation</li>
     <!-- <li class="flag" id="notforrelease">Not for release</li> -->
     <!-- <li class="flag flag-inactive">ACCT</li>
     <li class="flag flag-inactive">Suicide / Self harm</li>
@@ -206,7 +249,7 @@ font-weight: bold;
           From
         </h6>
         <p>
-          {{data.from}}
+          HMP Bedford
         </p>
       </div>
       <div class="tile col-3">
@@ -228,18 +271,27 @@ font-weight: bold;
           </span>
         </p>
       </div>
-      <div class="tile col-2">
+      <div class="tile col-3">
         <h6>
           Special vehicle requirements
         </h6>
         <p>
-          <span>
-            <span id="special_vehicle">{{ data['special_vehicle'] }}</span>
-            {{ data['special_vehicle_info'] }}
+          <span id="special_vehicle_info"> {{data.special_vehicle_info}}</span>
+        </p>
+      </div>
+      <div class="tile col-3">
+        <h6>
+          Travelling with a child
+        </h6>
+        <p>
+          {{data.travel_with_child}}<br>
+          <span style="" id="travel_with_child_info">
+            <span class="child-info">Name of child: </span>{{data.child_name}}
+            <span class="child-info"><br>DoB of child: </span>{{data.child_dob}}
           </span>
         </p>
       </div>
-      <div class="tile col-2" style="display:block;">
+      <div class="tile col-3">
         <h6>
           Other special requirements
         </h6>
@@ -422,7 +474,7 @@ font-weight: bold;
           <span style="float:right">
             <span class="status statusReview">Review</span>
             &nbsp;
-            <a href="check-your-answers-risk-review.html" class="reviewLink" style="display:inline-block">Edit</a>
+            <a href="check-your-answers-risk-incomplete.html" class="reviewLink" style="display:inline-block">Edit</a>
           </span>
           <p>
             Last confirmed: Joes Bloggs, HH:MM | DD Mon YYYY
