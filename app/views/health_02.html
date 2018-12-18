@@ -28,63 +28,63 @@ Question page
         <p class="form-hint">
           For example, issues that mean they:
           <ul class="list list-bullet form-hint">
+            <li>Might need treatment for an illness or infection</li>
             <li>Can't be handcuffed </li>
             <li>Can't travel in a standard van cell</li>
             <li>Can't sit for long periods of time</li>
-            <li>Might need treatment for an illness or infection</li>
           </ul>
-</p>
+        </p>
 
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="visually-hidden"></legend>
+
+            <div class="multiple-choice" data-target="physical_health_info">
+              <input id="radio-inline-1" type="radio" name="physical_health" value="Yes" {{ checked("physical_health", "Yes") }}>
+              <label for="radio-inline-1">Yes</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="radio-inline-2" type="radio" name="physical_health" value="No" {{ checked("physical_health", "No") }} onclick="clearDetails('textarea-b');">
+              <label for="radio-inline-2">No</label>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <!-- conditionals -->
+        <div class="panel panel-border-narrow js-hidden" id="physical_health_info">
+          <!-- Give details -->
           <div class="form-group">
-            <fieldset class="inline">
+            <fieldset>
+              <legend class="visuallyhidden"></legend>
+              <label class="form-label" for="textarea-b">
+                Please explain how these issues might affect the journey and how they should be managed:
+              </label>
+              <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="physical_health_info">{{data['physical_health_info']}}</textarea>
+            </div>
+          </fieldset>
+        </div>
 
-              <legend class="visually-hidden"></legend>
+        <!-- button -->
+        <div class="form-group">
+          {% include "includes/health-screen-buttons.html" %}
+        </div>
+      </form>
 
-              <div class="multiple-choice" data-target="physical_health_info">
-                <input id="radio-inline-1" type="radio" name="physical_health" value="Yes" {{ checked("physical_health", "Yes") }}>
-                <label for="radio-inline-1">Yes</label>
-              </div>
-
-              <div class="multiple-choice">
-                <input id="radio-inline-2" type="radio" name="physical_health" value="No" {{ checked("physical_health", "No") }} onclick="clearDetails('textarea-b');">
-                <label for="radio-inline-2">No</label>
-              </div>
-
-            </fieldset>
-          </div>
-
-          <!-- conditionals -->
-          <div class="panel panel-border-narrow js-hidden" id="physical_health_info">
-            <!-- Give details -->
-            <div class="form-group">
-              <fieldset>
-                <legend class="visuallyhidden"></legend>
-                <label class="form-label" for="textarea-b">
-                  Please explain how these issues might affect the journey and how they should be managed:
-                </label>
-                <textarea class="form-control" id="textarea-b" cols="30" rows="3" name="physical_health_info">{{data['physical_health_info']}}</textarea>
-              </div>
-            </fieldset>
-          </div>
-
-          <!-- button -->
-          <div class="form-group">
-            {% include "includes/health-screen-buttons.html" %}
-          </div>
-        </form>
-
-      </div>
-      <div class="column-one-third side-profile">
-        <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
-        <img src="/public/images/ronnie.jpg"/>
-        <p class="font-xsmall info-start">Date of travel</p>
-        <h2>13 Apr 2017</h2>
-        <p class="font-xsmall">From</p>
-        <h2>HMP Bedford</h2>
-        <p class="font-xsmall">To</p>
-        <h2>St Albans Crown Court</h2>
-      </div>
     </div>
-  </main>
+    <div class="column-one-third side-profile">
+      <h1><span class="namebold"> <a href="/profile.html"> A1234AB</a><br/>BARKER</span> RONNIE</h1>
+      <img src="/public/images/ronnie.jpg"/>
+      <p class="font-xsmall info-start">Date of travel</p>
+      <h2>13 Apr 2017</h2>
+      <p class="font-xsmall">From</p>
+      <h2>HMP Bedford</h2>
+      <p class="font-xsmall">To</p>
+      <h2>St Albans Crown Court</h2>
+    </div>
+  </div>
+</main>
 
-  {% endblock %}
+{% endblock %}
